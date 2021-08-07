@@ -2,8 +2,8 @@
 # Ejercicio 1.18
 # -----------------------------------------------------------------
 
-cadena = input('Ingrese la frase a traducir a jeringoso: ')
-capadepenapa = ''
+cadena = input('Ingrese la frase a traducir a jeringoso: ') # Defino la cadena de entrada como input
+capadepenapa = '' # Defino la cadena de salida
 vocales = 'aeiou'
 vocalesAcento = 'áéíóú'
 posicion = 0
