@@ -24,3 +24,7 @@ for c in cadena:
     posicion += 1
 
 print(capadepenapa)
+
+# Obtuve
+# Geringoso -----> Geperipingoposopo
+# boligoma -----> bopolipigopomapa

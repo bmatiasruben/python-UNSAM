@@ -2,10 +2,10 @@
 # Ejercicio 1.11
 # -----------------------------------------------------------------
 
-saldo = 500000.0
-tasa = 0.05
+saldo = 500000.0 
+tasa = 0.05 
 pagoMensual = 2684.11
-totalPagado = 0.0
+totalPagado = 0.0 
 mes = 0
 pagoExtraComienzo = 61
 pagoExtraFinal = 108
@@ -31,6 +31,8 @@ while saldo > 0:
     print(mes, round(totalPagado, 2), round(saldo, 2))
 
 print('Total pagado:', round(totalPagado, 2))
-print('pagado en:', mes, 'meses')
+print('Pagado en:', mes, 'meses')
 
-
+# Obtuve al final
+# Total pagado: 878202.57
+# Pagado en: 310 meses
