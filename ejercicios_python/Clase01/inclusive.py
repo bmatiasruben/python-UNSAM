@@ -2,8 +2,8 @@
 # Ejercicio 1.18
 # -----------------------------------------------------------------
 
-nombreUsuario = input('Ingrese nombre de usuari@: ')
-print('Hola,', nombreUsuario)
+# nombreUsuario = input('Ingrese nombre de usuari@: ')
+# print('Hola,', nombreUsuario)
 
 frase = input('Ingresa la frase a traducir a lenguaje inclusivo: ')
 
