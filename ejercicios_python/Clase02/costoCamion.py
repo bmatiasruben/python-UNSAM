@@ -7,7 +7,7 @@ import csv
 def costoCamion(archivo):
     f = open(archivo, 'rt')
     rows = csv.reader(f)
-    headers = next(rows)
+    next(rows)
     costoTotal = 0
     for index, row in enumerate(rows):
         try:
