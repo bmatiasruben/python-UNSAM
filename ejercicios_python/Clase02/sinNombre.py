@@ -18,6 +18,21 @@
 # f.close()
 
 # -----------------------------------------------------------------
+# Ejercicio 2.2
+# -----------------------------------------------------------------
+
+# f = open('../Data/camion.csv', 'rt') # abro el archivo
+# headers = next(f).split(',') # Leo la primera linea del archivo (contiene los headers)
+# costoTotal = 0 # Inicializo el costo total en 0
+
+# for line in f:
+#     row = line.split(',')
+#     costoTotal += int(row[1])*float(row[2])
+# f.close()
+
+# print('Costo total', costoTotal)
+
+# -----------------------------------------------------------------
 # Ejercicio 2.3
 # -----------------------------------------------------------------
 
@@ -52,28 +67,21 @@
 # saludar(nombre)
 
 # -----------------------------------------------------------------
-# Ejercicio 2.7
+# Ejercicio 2.6
 # -----------------------------------------------------------------
 
-# def buscarPrecio(fruta):
-#     f = open('../Data/precios.csv', 'rt')
-
+# def costoCamion(archivo):
+#     f = open(archivo, 'rt')
+#     headers = next(f)
+#     costoTotal = 0
 #     for line in f:
 #         row = line.split(',')
-#         if row[0].lower() == fruta.lower():
-#             return row[1]
-#             f.close()
+#         costoTotal += int(row[1])*float(row[2])
+#     f.close()
+#     return(costoTotal)
 
-#     return False    
-    
-# fruta = input('Ingrese la fruta a buscar el precio: ')
-
-# precio = buscarPrecio(fruta)
-
-# if precio == False:
-#     print(f'{fruta} no figura en el listado de precios')
-# else:
-#     print(f'El precio de un cajón de {fruta} es: {precio}')
+# costo = costoCamion('../Data/camion.csv')
+# print('Costo total:', costo)
 
 # -----------------------------------------------------------------
 # Ejercicio 2.8a
@@ -91,6 +99,27 @@
 #         print(f'{nombre} tiene {edad} años.')
 #     except ValueError:
 #         print(f'{nombre} no ingresó una edad válida.')
+
+# -----------------------------------------------------------------
+# Ejercicio 2.8b
+# -----------------------------------------------------------------
+
+# def costoCamion(archivo):
+#     f = open(archivo, 'rt')
+#     headers = next(f)
+#     costoTotal = 0
+#     for index, line in enumerate(f):
+#         try:
+#             row = line.split(',')
+#             costoTotal += int(row[1])*float(row[2])
+#         except ValueError:
+#             print(f'ERROR. Se ignoró la linea {index + 2} por falta de datos.')
+        
+#     f.close()
+#     return(costoTotal)
+
+# costo = costoCamion('../Data/missing.csv')
+# print('Costo total:', costo)
 
 # -----------------------------------------------------------------
 # Ejercicio 2.11
@@ -164,6 +193,36 @@
 # print(list(d))
 
 # print(d.keys())
+
+# -----------------------------------------------------------------
+# Ejercicio 2.15
+# -----------------------------------------------------------------
+
+# import csv
+
+# def costoCamion(archivo):
+#     f = open(archivo, 'rt')
+#     rows = csv.reader(f)
+#     next(rows)
+#     camion = []
+#     for index, row in enumerate(rows):
+#         try:
+#             lote = (row[0], int(row[1]), float(row[2]))
+#             camion.append(lote)
+#         except ValueError:
+#             print(f'ERROR. Se ignoró la linea {index + 2} por falta de datos.')
+        
+#     f.close()
+#     return(camion)
+
+# camion = costoCamion('../Data/camion.csv')
+
+# costo = 0
+
+# for nombre, cajones, precio in camion:
+#     costo += cajones * precio
+
+# print(costo)
 
 # -----------------------------------------------------------------
 # Ejercicio 2.17

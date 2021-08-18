@@ -1,34 +1,4 @@
 # -----------------------------------------------------------------
-# Ejercicio 2.15
-# -----------------------------------------------------------------
-
-# import csv
-
-# def costoCamion(archivo):
-#     f = open(archivo, 'rt')
-#     rows = csv.reader(f)
-#     next(rows)
-#     camion = []
-#     for index, row in enumerate(rows):
-#         try:
-#             lote = (row[0], int(row[1]), float(row[2]))
-#             camion.append(lote)
-#         except ValueError:
-#             print(f'ERROR. Se ignoró la linea {index + 2} por falta de datos.')
-        
-#     f.close()
-#     return(camion)
-
-# camion = costoCamion('../Data/camion.csv')
-
-# costo = 0
-
-# for nombre, cajones, precio in camion:
-#     costo += cajones * precio
-
-# print(costo)
-
-# -----------------------------------------------------------------
 # Ejercicio 2.18
 # -----------------------------------------------------------------
 
