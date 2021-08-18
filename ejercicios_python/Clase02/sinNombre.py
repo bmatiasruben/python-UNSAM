@@ -79,16 +79,114 @@
 # Ejercicio 2.8a
 # -----------------------------------------------------------------
 
-def preguntarEdad(nombre):
-    edad = int(input(f'ingresá tu edad {nombre}: '))
-    if edad<0:
-        raise ValueError('La edad no puede ser negativa.')
-    return edad
+# def preguntarEdad(nombre):
+#     edad = int(input(f'ingresá tu edad {nombre}: '))
+#     if edad<0:
+#         raise ValueError('La edad no puede ser negativa.')
+#     return edad
 
-# nombre = input('Ingresa tu nombre: ')
-for nombre in ['Pedro','Juan','Caballero']:
-    try:
-        edad = preguntarEdad(nombre)
-        print(f'{nombre} tiene {edad} años.')
-    except ValueError:
-        print(f'{nombre} no ingresó una edad válida.')
+# for nombre in ['Pedro','Juan','Caballero']:
+#     try:
+#         edad = preguntarEdad(nombre)
+#         print(f'{nombre} tiene {edad} años.')
+#     except ValueError:
+#         print(f'{nombre} no ingresó una edad válida.')
+
+# -----------------------------------------------------------------
+# Ejercicio 2.11
+# -----------------------------------------------------------------
+
+# import csv
+
+# f = open('../Data/camion.csv', 'rt')
+# rows = csv.reader(f)
+# next(rows)
+# row = next(rows)
+
+
+# t = (row[0], int(row[1]), float(row[2]))
+# print(t)
+
+# nombre, cajones, precio = t
+# print(nombre, cajones, precio)
+
+# t = (nombre, 2*cajones, precio)
+# print(t)
+
+# -----------------------------------------------------------------
+# Ejercicio 2.12
+# -----------------------------------------------------------------
+
+# import csv
+
+# f = open('../Data/camion.csv', 'rt')
+# rows = csv.reader(f)
+# next(rows)
+# row = next(rows)
+
+# d = {
+#     'nombre' : row[0], 
+#     'cajones' : int(row[1]), 
+#     'precio' : float(row[2])
+# } 
+# print(d)
+
+# print(d['cajones'] * d['precio'])
+
+# d['fecha'] = (14, 8, 2020)
+# d['cuenta'] = 12345
+
+# print(d)
+
+# -----------------------------------------------------------------
+# Ejercicio 2.13
+# -----------------------------------------------------------------
+
+# import csv
+
+# f = open('../Data/camion.csv', 'rt')
+# rows = csv.reader(f)
+# next(rows)
+# row = next(rows)
+
+# d = {
+#     'nombre' : row[0], 
+#     'cajones' : int(row[1]), 
+#     'precio' : float(row[2])
+# } 
+
+# d['fecha'] = (14, 8, 2020)
+# d['cuenta'] = 12345
+
+# for k in d:
+#     print(k, '=', d[k])
+
+# print(list(d))
+
+# print(d.keys())
+
+# -----------------------------------------------------------------
+# Ejercicio 2.17
+# -----------------------------------------------------------------
+
+import csv
+
+def leerPrecios():
+    precios = {}
+    f = open('../Data/precios.csv', 'rt')
+    rows = csv.reader(f)
+    for index, row in enumerate(rows):
+        try:
+            precios[row[0]] = float(row[1])
+        except IndexError:
+            print(f'ERROR. Se ignoró la linea {index + 2} por falta de datos.')
+            
+    return precios    
+    
+precios = leerPrecios()
+
+fruta = input('Ingrese la fruta a buscar el precio: ')
+try:
+    print(f'El precio de un cajón de {fruta} es: {precios[fruta]}')
+except KeyError:
+    print(f'{fruta} no figura en el listado de precios')

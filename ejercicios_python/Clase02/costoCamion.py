@@ -73,3 +73,4 @@ def costoCamion(archivo):
 
 costo = costoCamion('../Data/camion.csv')
 print('Costo total:', costo)
+
