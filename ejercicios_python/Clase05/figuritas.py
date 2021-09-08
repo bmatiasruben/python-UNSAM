@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------
-# Ejercicio 5.15
+# Ejercicio 5.19
 # -----------------------------------------------------------------
 import random
 import numpy as np
@@ -29,3 +29,20 @@ def main_5_14():
 def experimento_figus(n_repeticiones, figus_total):
     resultados = [cuantas_figus(figus_total) for i in range(n_repeticiones)]
     return np.mean(resultados)
+
+def comprar_paquete(figus_total, figus_paquete):
+    return [random.randint(0,figus_total - 1) for i in range(figus_paquete)]
+
+def cuantos_paquetes(figus_total, figus_paquete):
+    album = crear_album(figus_total)
+    paquetes = 0
+    while album_incompleto(album):
+        paquetes += 1
+        paquete = comprar_paquete(figus_total, figus_paquete)
+        for i in paquete:
+            album[i] += 1
+    return paquetes 
+    
+def main_5_19():
+    paquetes = [cuantos_paquetes(670, 5) for i in range(100)]
+    print(f'Se necesitan en promedio {np.mean(paquetes)} paquetes para llenar el album')

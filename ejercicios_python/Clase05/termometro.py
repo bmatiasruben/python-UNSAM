@@ -10,8 +10,10 @@ def medir_temp(n):
 
 def resumen_temp(n):
     lista_temp = medir_temp(n).sort()  
-    return max(lista_temp), min(lista_temp), sum(lista_temp)/n, lista_temp[n//2]
-
+    if n%2 == 1:
+        return max(lista_temp), min(lista_temp), sum(lista_temp)/n, (lista_temp[n//2] + lista_temp[n//2-1])/2
+    else:
+        return max(lista_temp), min(lista_temp), sum(lista_temp)/n, lista_temp[n//2]
 temp_array = np.array(medir_temp(999))
 np.save('../Data/temperaturas', temp_array)
 

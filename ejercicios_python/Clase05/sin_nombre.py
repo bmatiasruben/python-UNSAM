@@ -162,3 +162,141 @@
 #     resultados = [cuantas_figus(6) for i in range(1000)]
 #     print(f'Se necesitan en promedio {np.mean(resultados)} figuritas para llenar un album de 6 figuritas')
 
+# -----------------------------------------------------------------
+# Ejercicio 5.15
+# -----------------------------------------------------------------
+# import random
+# import numpy as np
+# import matplotlib.pyplot as plt
+
+# def crear_album(figus_total):
+#     return np.zeros(figus_total)
+
+# def album_incompleto(album):
+#     return 0 in album
+
+# def comprar_figu(figus_total):
+#     return random.randint(0,figus_total - 1)
+
+# def cuantas_figus(figus_total):
+#     album = crear_album(figus_total)
+#     figuritas = 0
+#     while album_incompleto(album):
+#         album[comprar_figu(figus_total)] += 1
+#         figuritas += 1
+#     return figuritas
+
+# def main_5_14():
+#     resultados = [cuantas_figus(6) for i in range(1000)]
+#     print(f'Se necesitan en promedio {np.mean(resultados)} figuritas para llenar un album de 6 figuritas')
+
+# def experimento_figus(n_repeticiones, figus_total):
+#     resultados = [cuantas_figus(figus_total) for i in range(n_repeticiones)]
+#     return np.mean(resultados)
+
+# -----------------------------------------------------------------
+# Ejercicio 5.17
+# -----------------------------------------------------------------
+# import random
+# import numpy as np
+# import matplotlib.pyplot as plt
+
+# def crear_album(figus_total):
+#     return np.zeros(figus_total)
+
+# def album_incompleto(album):
+#     return 0 in album
+
+# def comprar_figu(figus_total):
+#     return random.randint(0,figus_total - 1)
+
+# def cuantas_figus(figus_total):
+#     album = crear_album(figus_total)
+#     figuritas = 0
+#     while album_incompleto(album):
+#         album[comprar_figu(figus_total)] += 1
+#         figuritas += 1
+#     return figuritas
+
+# def main_5_14():
+#     resultados = [cuantas_figus(6) for i in range(1000)]
+#     print(f'Se necesitan en promedio {np.mean(resultados)} figuritas para llenar un album de 6 figuritas')
+
+# def experimento_figus(n_repeticiones, figus_total):
+#     resultados = [cuantas_figus(figus_total) for i in range(n_repeticiones)]
+#     return np.mean(resultados)
+
+# def comprar_paquete(figus_total, figus_paquete):
+#     return [random.randint(0,figus_total - 1) for i in range(figus_paquete)]
+
+# -----------------------------------------------------------------
+# Ejercicio 5.18
+# -----------------------------------------------------------------
+# import random
+# import numpy as np
+# import matplotlib.pyplot as plt
+
+# def crear_album(figus_total):
+#     return np.zeros(figus_total)
+
+# def album_incompleto(album):
+#     return 0 in album
+
+# def comprar_figu(figus_total):
+#     return random.randint(0,figus_total - 1)
+
+# def cuantas_figus(figus_total):
+#     album = crear_album(figus_total)
+#     figuritas = 0
+#     while album_incompleto(album):
+#         album[comprar_figu(figus_total)] += 1
+#         figuritas += 1
+#     return figuritas
+
+# def main_5_14():
+#     resultados = [cuantas_figus(6) for i in range(1000)]
+#     print(f'Se necesitan en promedio {np.mean(resultados)} figuritas para llenar un album de 6 figuritas')
+
+# def experimento_figus(n_repeticiones, figus_total):
+#     resultados = [cuantas_figus(figus_total) for i in range(n_repeticiones)]
+#     return np.mean(resultados)
+
+# def comprar_paquete(figus_total, figus_paquete):
+#     return [random.randint(0,figus_total - 1) for i in range(figus_paquete)]
+
+# def cuantos_paquetes(figus_total, figus_paquete):
+#     album = crear_album(figus_total)
+#     paquetes = 0
+#     while album_incompleto(album):
+#         paquetes += 1
+#         paquete = comprar_paquete(figus_total, figus_paquete)
+#         for i in paquete:
+#             album[i] += 1
+#     return paquetes 
+    
+# -----------------------------------------------------------------
+# Ejercicio 5.26
+# -----------------------------------------------------------------
+
+# import csv
+# import os
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# def leer_arboles(archivo):
+#     f = open(archivo, 'rt', encoding="utf8")
+#     rows = csv.reader(f)
+#     headers = next(rows)
+#     types = [float, float, int, float, float, float, int, str, str, str, str, str, str, str, str, float, float]
+#     arboleda = [{nombre:func(valor) for nombre, func, valor in zip(headers, types, row)} for row in rows]
+#     return arboleda
+
+# def medidas_de_especies(especies, arboleda):
+#     datos_especies = {especie:[(arbol['altura_tot'], arbol['diametro']) for arbol in arboleda if arbol['nombre_com'] == especie] for especie in especies}
+#     return datos_especies
+
+# def main_5_25():
+#     arboleda = leer_arboles('../Data/arbolado-en-espacios-verdes.csv')
+#     alturas_jacaranda = [arbol['altura_tot'] for arbol in arboleda if arbol['nombre_com'] == 'Jacarandá']
+#     plt.hist(alturas_jacaranda, bins = 100)
+#     plt.show()
